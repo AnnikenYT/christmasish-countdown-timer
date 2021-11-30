@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Aleo");
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+:root {
+    font-family: "Gochi Hand";
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: rgb(119, 13, 13);
+    background-image: url("https://media.discordapp.net/attachments/911781269837344788/911955590555779082/SPOILER_2021-11-20_22.05.06.png?width=1440&height=763");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.label {
+    font-family: var(--font-script);
+    font-size: 5rem;
+    line-height: 1;
+    margin: -1rem 0 0;
+    padding: 0 2rem;
+    letter-spacing: 0.02em;
+    background: repeating-linear-gradient(45deg,
+            #d80e13,
+            #d80e13 10px,
+            #ffffff 10px,
+            #ffffff 20px);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.24), 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes moveBg {
+    0% {
+        background-position: 0% 30%;
+    }
+
+    100% {
+        background-position: 1000% 500%;
+    }
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+}
+
+.time {
+    color: #d99c3b;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
+.time span {
+    padding: 0 14px;
+    font-size: 0.8rem;
+}
+
+.time span div {
+    font-size: 3rem;
+}
+
+@media (max-width: 740px) {
+    .label {
+        font-size: 3rem;
+    }
+
+    .time span {
+        padding: 0 16px;
+        font-size: 0.6rem;
+    }
+
+    .time span div {
+        font-size: 2rem;
+    }
+}
