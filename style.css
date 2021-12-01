@@ -15,6 +15,8 @@ body {
     background-image: url("https://media.discordapp.net/attachments/911781269837344788/911955590555779082/SPOILER_2021-11-20_22.05.06.png?width=1440&height=763");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
 }
 
 canvas {
@@ -44,16 +46,6 @@ canvas {
         0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes moveBg {
-    0% {
-        background-position: 0% 30%;
-    }
-
-    100% {
-        background-position: 1000% 500%;
-    }
-}
-
 .middle {
     position: absolute;
     top: 50%;
@@ -79,6 +71,18 @@ canvas {
     font-size: 3rem;
 }
 
+.side {
+    position: absolute;
+    bottom: -25px;
+    right: 25%;
+    width: 15rem;
+    background-color: #111;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+    margin: 0;
+}
+
 @media (max-width: 740px) {
     .label {
         font-size: 3rem;
@@ -92,4 +96,95 @@ canvas {
     .time span div {
         font-size: 2rem;
     }
+}
+
+/* SECTION: Tooltips */
+
+.icon {
+    aspect-ratio: 1/1;
+    width: 1.5rem;
+    position: relative;
+    cursor: pointer;
+    top: 1.5rem;
+}
+
+.icon svg {
+    transition: 0.3s ease;
+    fill: #d99c3b;
+}
+
+.icon:hover .tooltip {
+    display: block;
+}
+
+.icon__src:hover svg {
+    fill: #0641AD;
+}
+
+.tooltip {
+    padding: 10px;
+    position: absolute;
+    width: auto;
+    white-space: nowrap;
+    word-wrap: no-wrap;
+    box-shadow: 1px 1px 20px #aaa;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%);
+    transform-style: preserve-3d;
+    z-index: 200;
+    font-size: 0.9em;
+    display: none;
+}
+
+.tooltip:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg) translateX(-50%);
+    background-color: #fff;
+    left: 50%;
+    top: -1px;
+    z-index: 400;
+}
+
+.tooltip:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg) translateX(-50%) translateZ(-1px);
+    background-color: #fff;
+    left: 50%;
+    top: 0px;
+    z-index: -1;
+    box-shadow: -1px -1px 20px #aaa;
+}
+
+.tooltip__dang {
+    color: #D30423;
+    box-shadow: 1px 1px 20px rgba(211, 4, 35, 0.3);
+}
+
+.tooltip__src {
+    color: #0641AD;
+    box-shadow: 1px 1px 20px rgba(6, 65, 173, 0.3);
+    top: -50px;
+}
+
+.tooltip__src:after {
+    top: auto;
+    bottom: -8px;
+}
+
+.tooltip__src:before {
+    top: auto;
+    bottom: -8px;
 }

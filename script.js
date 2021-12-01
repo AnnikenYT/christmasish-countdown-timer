@@ -132,3 +132,24 @@ function initCountdown() {
 }
 
 initCountdown();
+
+// SECTION: Github
+
+// get the object.url from this url: https://api.github.com/repos/AnnikenYT/christmasish-countdown-timer/git/refs/heads/main
+fetch(
+	"https://api.github.com/repos/AnnikenYT/christmasish-countdown-timer/git/refs/heads/main"
+).then((response) => {
+	response.json().then((data) => {
+		const url = data.object.url;
+		return fetch(url).then((response) => {
+			response.json().then((data) => {
+				console.log(data.message);
+				document.getElementById("tooltip").innerHTML = `last commit: ${data.message}`;
+				// on click, open the data.html_url in a new tab
+				document.getElementById("github").addEventListener("click", () => {
+					window.open(data.html_url, "_blank");
+				});
+			});
+		});
+	});
+});
