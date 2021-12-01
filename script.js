@@ -101,7 +101,7 @@ function getTrueNumber(num) {
 }
 
 function calculateRemainingTime() {
-	const comingDate = new Date(`Dec 1, 2021 20:00:00`);
+	const comingDate = new Date(`Dec 1, 2021 19:00:00`);
 
 	const now = new Date();
 	const remainingTime = comingDate.getTime() - now.getTime();
