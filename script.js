@@ -91,17 +91,20 @@ new Snow();
 
 // SECTION: Countdown
 
+let audio_allowed = false;
+
 const d = document.getElementById("d");
 const h = document.getElementById("h");
 const m = document.getElementById("m");
 const s = document.getElementById("s");
+const time = document.getElementById("time");
 
 function getTrueNumber(num) {
 	return num < 10 ? "0" + num : num;
 }
 
+var comingDate = new Date(`Dec 1, 2021 19:00:00`);
 function calculateRemainingTime() {
-	const comingDate = new Date(`Dec 1, 2021 19:00:00`);
 
 	const now = new Date();
 	const remainingTime = comingDate.getTime() - now.getTime();
@@ -124,9 +127,12 @@ function initCountdown() {
 	const interval = setInterval(() => {
 		const remainingTimeInMs = calculateRemainingTime();
 
-		if (remainingTimeInMs <= 1000) {
+		if (remainingTimeInMs <= 0) {
 			clearInterval(interval);
-			initCountdown();
+			time.innerHTML = "Lets Go!";
+			if (audio_allowed) {
+				playSound();
+			}
 		}
 	}, 1000);
 }
@@ -153,3 +159,14 @@ fetch(
 		});
 	});
 });
+
+function handleChangeAudio() {
+	// set the audio_allowed to the state of the checkbox
+	audio_allowed = document.getElementById("audio_checkbox").checked;
+	console.log("Audio is now " + audio_allowed);
+}
+
+function playSound() {
+	var audio = new Audio('notify.mp3');
+	audio.play();
+}
