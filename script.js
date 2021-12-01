@@ -160,6 +160,9 @@ fetch(
 	});
 });
 
+// on load, set the checkbox to audio_allowed
+document.getElementById("audio_checkbox").checked = audio_allowed;
+
 function handleChangeAudio() {
 	// set the audio_allowed to the state of the checkbox
 	audio_allowed = document.getElementById("audio_checkbox").checked;
