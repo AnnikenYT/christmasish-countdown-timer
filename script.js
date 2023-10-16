@@ -103,7 +103,9 @@ function getTrueNumber(num) {
 	return num < 10 ? "0" + num : num;
 }
 
-var comingDate = new Date(`Dec 18, 2021 17:00:00`);
+var year = new Date().getFullYear();
+
+var comingDate = new Date(`Dec 24, ${year} 24:00:00`);
 function calculateRemainingTime() {
 
 	const now = new Date();
